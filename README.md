@@ -1,4 +1,6 @@
 # Advanced-Telegram-Compatible-Keylogger-Bot-by-Cem-Baran-Tunc
+Statement of Responsibility: I am NOT responsible for any malicious use of this code nor any consequences that caused by the one who uses this code partially or fully.
+
 This malware forwards infected pc's keystrokes to the stalker silently via Telegram platform. Screenshot feature is also available.
 Tip: Being deployed by using nuitka instead of pyinstaller will lower detection of the malware.
 
